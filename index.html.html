@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلتي مع يسوع - فصل أبطال الإيمان (فصل 5 و 6)</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2E1A47">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="رحلتي مع يسوع">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cairo & Fredoka -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --honeydew: #F6FFEA;
+            --soft-peach: #FFDE96;
+            --coral-glow: #FA855A;
+            --tomato-jam: #C93638;
+            --sky-blue: #62C4DA;
+            --comic-purple: #2E1A47;
+            --comic-dark: #1A202C;
+            --canvas-bg: #F8FAF6;
+        }
+
+        body {
+            font-family: 'Cairo', 'Fredoka', sans-serif;
+            background-color: var(--canvas-bg);
+            background-image: radial-gradient(var(--sky-blue) 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+            color: var(--comic-dark);
+            min-height: 100vh;
+        }
+
+        /* Comic Style UI Components */
+        .comic-border {
+            border: 3px solid var(--comic-dark);
+            box-shadow: 4px 4px 0px var(--comic-dark);
+        }
+
+        .comic-border-sm {
+            border: 2px solid var(--comic-dark);
+            box-shadow: 2px 2px 0px var(--comic-dark);
+        }
+
+        .comic-btn {
+            border: 3px solid var(--comic-dark);
+            box-shadow: 4px 4px 0px var(--comic-dark);
+            transition: all 0.15s ease-in-out;
+            font-weight: 800;
+        }
+
+        .comic-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--comic-dark);
+        }
+
+        .comic-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--comic-dark);
+        }
+
+        .comic-card {
+            border: 3px solid var(--comic-dark);
+            box-shadow: 5px 5px 0px var(--comic-dark);
+            border-radius: 1rem;
+            background-color: #ffffff;
+        }
+
+        .comic-input {
+            border: 3px solid var(--comic-dark);
+            border-radius: 0.75rem;
+            padding: 0.6rem 1rem;
+            font-weight: 700;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .comic-input:focus {
+            border-color: var(--coral-glow);
+            box-shadow: 0 0 0 3px rgba(250, 133, 90, 0.2);
+        }
+
+        .comic-badge {
+            border: 2px solid var(--comic-dark);
+            box-shadow: 2px 2px 0px var(--comic-dark);
+            font-weight: 800;
+            border-radius: 9999px;
+            padding: 0.2rem 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        /* Modal Backdrops */
+        .modal-backdrop {
+            background-color: rgba(26, 32, 44, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--sky-blue);
+            border-radius: 4px;
+            border: 2px solid var(--comic-dark);
+        }
+
+        .ltr-mode {
+            direction: ltr;
+            text-align: left;
+        }
+
+        .rtl-mode {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="p-2 sm:p-4 md:p-6 pb-24">
+
+    <!-- Top Navigation Header -->
+    <header class="max-w-6xl mx-auto mb-6">
+        <div class="comic-card p-4 sm:p-6 bg-gradient-to-r from-[#FFDE96] via-[#F6FFEA] to-[#62C4DA] flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- App Branding with Cross Icon -->
+            <div class="flex items-center gap-3 text-center md:text-right">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-[#C93638] rounded-2xl comic-border flex items-center justify-center shrink-0 text-white shadow-lg">
+                    <!-- SVG Christian Cross -->
+                    <svg class="w-10 h-10 fill-current stroke-black stroke-2" viewBox="0 0 24 24">
+                        <path d="M11 2h2v6h6v2h-6v12h-2V10H5V8h6V2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 id="appTitle" class="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-[#2E1A47] leading-tight">
+                        رحلتي مع يسوع
+                    </h1>
+                    <p id="appSubtitle" class="text-xs sm:text-sm font-bold text-[#C93638] bg-white/80 px-2 py-0.5 rounded-md inline-block comic-border-sm mt-1">
+                        فصل أبطال الإيمان - الكنيسة الإنجيلية بالعباسية (فصل 5 و 6)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Controls: Mode Switcher, Language Toggle, Leader Login/Logout -->
+            <div class="flex flex-wrap items-center justify-center gap-2">
+                <!-- PWA Install Button -->
+                <button onclick="togglePwaModal()" class="comic-btn bg-[#FFDE96] text-[#2E1A47] px-3 py-1.5 text-xs sm:text-sm rounded-xl flex items-center gap-1.5">
+                    <i class="fa-solid fa-mobile-screen-button text-base"></i>
+                    <span id="btnPwa">تثبيت التطبيق</span>
+                </button>
+
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" class="comic-btn bg-white text-[#2E1A47] px-3 py-1.5 text-xs sm:text-sm rounded-xl flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe text-base text-[#62C4DA]"></i>
+                    <span id="langLabel">English</span>
+                </button>
+
+                <!-- Leader Portal Trigger -->
+                <button id="leaderPortalBtn" onclick="handleLeaderPortalClick()" class="comic-btn bg-[#2E1A47] text-white px-3 py-1.5 text-xs sm:text-sm rounded-xl flex items-center gap-1.5">
+                    <i class="fa-solid fa-user-shield text-[#FFDE96]"></i>
+                    <span id="leaderBtnText">بوابة الخدام</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Active User & Role Bar (If Logged In) -->
+    <div id="userBar" class="max-w-6xl mx-auto mb-6 hidden">
+        <div class="comic-card p-3 bg-white flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-gray-500" id="loggedInAsLabel">المستخدم الحادي:</span>
+                <span id="userNameDisplay" class="font-black text-[#2E1A47] text-base">---</span>
+                <span id="userBadge" class="comic-badge bg-[#62C4DA] text-white text-xs">طالب</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <div id="studentPointsQuick" class="font-black text-[#C93638] bg-[#FFDE96] px-3 py-1 rounded-lg comic-border-sm">
+                    <i class="fa-solid fa-star text-yellow-600 ml-1"></i>
+                    <span id="userPointsVal">0</span> <span id="ptsLabel">نقطة</span>
+                </div>
+                <button onclick="logoutUser()" class="text-xs font-bold text-red-600 hover:underline">
+                    <i class="fa-solid fa-right-from-bracket"></i> <span id="logoutTxt">خروج</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto">
+
+        <!-- VIEW 1: STUDENT LOGIN / REGISTER MODAL / CARD -->
+        <section id="studentAuthSection" class="comic-card p-6 sm:p-8 bg-white max-w-lg mx-auto text-center">
+            <div class="w-16 h-16 bg-[#FFDE96] rounded-full comic-border mx-auto flex items-center justify-center text-2xl text-[#2E1A47] mb-4">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h2 id="authTitle" class="text-2xl font-black text-[#2E1A47] mb-2">دخول بطل جديد! 🚀</h2>
+            <p id="authSubtitle" class="text-sm text-gray-600 mb-6 font-bold">اكتب اسمك وسجل معانا عشان تبدأ جمع النقاط والسباق!</p>
+
+            <form id="studentAuthForm" onsubmit="handleStudentAuth(event)" class="space-y-4 text-right">
+                <div>
+                    <label id="lblFullName" class="block text-xs font-extrabold text-[#2E1A47] mb-1">اسم الطالب بالكامل ✍️</label>
+                    <input type="text" id="authFullName" required placeholder="مثال: بيتر إبرام" class="w-full comic-input text-sm">
+                </div>
+
+                <div>
+                    <label id="lblBirthday" class="block text-xs font-extrabold text-[#2E1A47] mb-1">تاريخ الميلاد 🎂</label>
+                    <input type="date" id="authBirthday" required class="w-full comic-input text-sm">
+                </div>
+
+                <div>
+                    <label id="lblTaskRole" class="block text-xs font-extrabold text-[#2E1A47] mb-1">فريق الخدمة بالفصل 🤝 (اختر دورك)</label>
+                    <select id="authTaskRole" required class="w-full comic-input text-sm bg-white">
+                        <option value="Greeting">فريق الاستقبال והترحيب 🤝 (Greeting)</option>
+                        <option value="Worship">فريق التسبيح 🎵 (Worship)</option>
+                        <option value="Media">فريق الميديا والتصوير 📸 (Media)</option>
+                        <option value="Crafts">فريق الأشغال والأشغال اليدوية 🎨 (Crafts)</option>
+                        <option value="Games">فريق الألعاب والمسابقات 🎮 (Games)</option>
+                    </select>
+                </div>
+
+                <div class="bg-[#F6FFEA] p-3 rounded-xl comic-border-sm text-xs text-gray-700 font-bold leading-relaxed">
+                    <i class="fa-solid fa-circle-info text-[#62C4DA] ml-1"></i>
+                    <span id="teamNoticeText">ملاحظة: سيقوم الخدام بتوزيعك على الفريق التنافسي (الأسود 🦁 / النسور 🦅 / الصقور ⚡) لاحقاً!</span>
+                </div>
+
+                <button type="submit" id="btnStartJourney" class="w-full comic-btn bg-[#FA855A] hover:bg-[#C93638] text-white py-3 rounded-xl text-base mt-2">
+                    ابدأ رحلتك الآن! 🌟
+                </button>
+            </form>
+        </section>
+
+        <!-- VIEW NAVIGATION TABS (Shown when logged in) -->
+        <nav id="appTabNav" class="hidden mb-6 flex flex-wrap gap-2 justify-center">
+            <!-- Student Tabs -->
+            <button onclick="switchTab('quietTime')" id="tabQuietTime" class="nav-tab comic-btn bg-[#FA855A] text-white px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-book-bible"></i> <span id="tabTxtQT">الخلوة اليومية</span>
+            </button>
+            <button onclick="switchTab('memory')" id="tabMemory" class="nav-tab comic-btn bg-white text-[#2E1A47] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-brain"></i> <span id="tabTxtMemory">التسميع والآيات</span>
+            </button>
+            <button onclick="switchTab('leaderboard')" id="tabLeaderboard" class="nav-tab comic-btn bg-white text-[#2E1A47] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-trophy"></i> <span id="tabTxtScore">لوحة الأبطال والفرق</span>
+            </button>
+            <button onclick="switchTab('goals')" id="tabGoals" class="nav-tab comic-btn bg-white text-[#2E1A47] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-bullseye"></i> <span id="tabTxtGoals">أهداف الفصل والمكافآت</span>
+            </button>
+            <button onclick="switchTab('newsfeed')" id="tabNewsfeed" class="nav-tab comic-btn bg-white text-[#2E1A47] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-bullhorn"></i> <span id="tabTxtNews">إعلانات الفصل</span>
+            </button>
+            <button onclick="switchTab('profile')" id="tabProfile" class="nav-tab comic-btn bg-white text-[#2E1A47] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-id-card"></i> <span id="tabTxtProfile">ملفي الشخصي</span>
+            </button>
+
+            <!-- Leader Only Tab -->
+            <button onclick="switchTab('leaderDashboard')" id="tabLeaderDash" class="nav-tab comic-btn bg-[#2E1A47] text-[#FFDE96] px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2 hidden">
+                <i class="fa-solid fa-sliders"></i> <span id="tabTxtLeader">لوحة التحكم والمتابعة 👑</span>
+            </button>
+        </nav>
+
+        <!-- TAB 1: DAILY QUIET TIME (STUDENT VIEW) -->
+        <div id="secQuietTime" class="tab-content hidden space-y-6">
+            <div class="comic-card p-6 bg-gradient-to-br from-[#F6FFEA] to-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b-2 border-gray-200 pb-4">
+                    <div>
+                        <span class="comic-badge bg-[#FA855A] text-white text-xs mb-2" id="qtTodayBadge">خلوة اليوم 📖</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-[#2E1A47]" id="qtPassageHeading">قراءة اليوم لم تُحدد بعد</h2>
+                        <p class="text-xs text-gray-500 font-bold mt-1" id="qtDateToday"></p>
+                    </div>
+                    <button onclick="openQTArchive()" class="comic-btn bg-[#62C4DA] text-white text-xs px-3 py-2 rounded-xl flex items-center gap-1.5">
+                        <i class="fa-solid fa-box-archive"></i>
+                        <span id="btnQTArchive">أرشيف الخلوات السابق</span>
+                    </button>
+                </div>
+
+                <!-- Passage Box -->
+                <div class="bg-[#FFDE96]/40 p-4 rounded-xl comic-border-sm mb-6">
+                    <h4 class="text-xs font-black text-[#C93638] uppercase mb-1" id="passageRefLabel">النص الكتابي المطلوب لقراءته اليوم:</h4>
+                    <p id="qtTodayText" class="text-base font-bold text-[#2E1A47]">لا توجد خلوة محددة لهذا اليوم. تابع مع الخدام!</p>
+                </div>
+
+                <!-- Quiet Time Interactive Submission Form -->
+                <form id="qtSubmissionForm" onsubmit="submitDailyReflection(event)" class="space-y-4">
+                    <div class="flex items-center gap-3 bg-white p-3 rounded-xl comic-border-sm">
+                        <input type="checkbox" id="qtReadCheck" class="w-6 h-6 rounded border-2 border-black text-[#FA855A] focus:ring-0 cursor-pointer">
+                        <label for="qtReadCheck" id="lblReadCheck" class="text-sm font-extrabold text-[#2E1A47] cursor-pointer">
+                            قرأت الخلوة اليوم بتركيز! 🌟 (في انتظار مراجعة الخدام للمنح)
+                        </label>
+                    </div>
+
+                    <div>
+                        <label id="lblFavVerse" class="block text-xs font-extrabold text-[#2E1A47] mb-1">1. آية لمست قلبي اليوم 📖</label>
+                        <input type="text" id="qtFavVerse" required placeholder="اكتب الآية هنا..." class="w-full comic-input text-sm">
+                    </div>
+
+                    <div>
+                        <label id="lblFavThought" class="block text-xs font-extrabold text-[#2E1A47] mb-1">2. فكرة أو درس تعلمته من القراءة 💡</label>
+                        <textarea id="qtFavThought" rows="2" required placeholder="شاركنا إيه اللي تعلمته..." class="w-full comic-input text-sm"></textarea>
+                    </div>
+
+                    <div>
+                        <label id="lblPrayer" class="block text-xs font-extrabold text-[#2E1A47] mb-1">3. صلاتي للرب اليوم 🙏</label>
+                        <textarea id="qtPrayer" rows="2" required placeholder="صلاتك وشكرك للرب..." class="w-full comic-input text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" id="btnSubmitQT" class="w-full comic-btn bg-[#FA855A] text-white py-3 rounded-xl text-sm font-black flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>إرسال الخلوة للمراجعة</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB 2: MEMORY RECITATION & TASKS -->
+        <div id="secMemory" class="tab-content hidden space-y-6">
+            <div class="comic-card p-6 bg-white">
+                <div class="mb-6">
+                    <h2 class="text-xl sm:text-2xl font-black text-[#2E1A47]" id="memHeading">آيات ومزامير التسميع 🧠</h2>
+                    <p class="text-xs text-gray-600 font-bold mt-1" id="memSubheading">احفظ الآية أو المزمور وسمعها للخادم في اجتماع الجمعة للحصول على النقاط!</p>
+                </div>
+
+                <!-- Memory Items Container -->
+                <div id="memoryTaskList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Dynamic Memory Tasks Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: LEADERBOARD & TEAMS -->
+        <div id="secLeaderboard" class="tab-content hidden space-y-6">
+            <!-- Team Scoreboard Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Lions -->
+                <div class="comic-card p-4 bg-gradient-to-b from-[#FFDE96] to-white text-center">
+                    <div class="text-3xl mb-1">🦁</div>
+                    <h3 class="font-black text-lg text-[#2E1A47]" id="teamLionsTitle">فريق الأسود</h3>
+                    <p class="text-2xl font-black text-[#C93638] my-1" id="scoreTeamLions">0</p>
+                    <span class="text-xs font-bold text-gray-600" id="ptsLabelLions">مجموع النقاط</span>
+                </div>
+                <!-- Eagles -->
+                <div class="comic-card p-4 bg-gradient-to-b from-[#62C4DA]/30 to-white text-center">
+                    <div class="text-3xl mb-1">🦅</div>
+                    <h3 class="font-black text-lg text-[#2E1A47]" id="teamEaglesTitle">فريق النسور</h3>
+                    <p class="text-2xl font-black text-[#62C4DA] my-1" id="scoreTeamEagles">0</p>
+                    <span class="text-xs font-bold text-gray-600" id="ptsLabelEagles">مجموع النقاط</span>
+                </div>
+                <!-- Falcons -->
+                <div class="comic-card p-4 bg-gradient-to-b from-[#FA855A]/30 to-white text-center">
+                    <div class="text-3xl mb-1">⚡</div>
+                    <h3 class="font-black text-lg text-[#2E1A47]" id="teamFalconsTitle">فريق الصقور</h3>
+                    <p class="text-2xl font-black text-[#FA855A] my-1" id="scoreTeamFalcons">0</p>
+                    <span class="text-xs font-bold text-gray-600" id="ptsLabelFalcons">مجموع النقاط</span>
+                </div>
+            </div>
+
+            <!-- Top Scorers & Attendance Streaks -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Individual Top Scorers -->
+                <div class="comic-card p-5 bg-white">
+                    <h3 class="font-black text-lg text-[#2E1A47] mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-crown text-yellow-500"></i>
+                        <span id="headingTopScorers">أبطال أعلى النقاط</span>
+                    </h3>
+                    <div id="individualRankList" class="space-y-3">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Friday Attendance Streaks -->
+                <div class="comic-card p-5 bg-white">
+                    <h3 class="font-black text-lg text-[#2E1A47] mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-[#FA855A] fa-fire text-[#FA855A]"></i>
+                        <span id="headingAttendanceStreaks">أبطال المواظبة الجمعة (الستريك 🔥)</span>
+                    </h3>
+                    <div id="attendanceStreakList" class="space-y-3">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: CLASS GOALS & REWARDS -->
+        <div id="secGoals" class="tab-content hidden space-y-6">
+            <div class="comic-card p-6 bg-white">
+                <div class="mb-6">
+                    <h2 class="text-xl sm:text-2xl font-black text-[#2E1A47]" id="goalsHeading">أهداف ومكافآت الفصل 🎯</h2>
+                    <p class="text-xs text-gray-600 font-bold mt-1" id="goalsSubheading">عندما يجمع الفصل معاً النقاط المطلوبة لنحتفل معاً!</p>
+                </div>
+
+                <!-- Goals Progress Bar List -->
+                <div id="classGoalsContainer" class="space-y-6">
+                    <!-- Dynamic Class Goals JS -->
+                </div>
+            </div>
+
+            <!-- How to Earn Bonus Points Catalog -->
+            <div class="comic-card p-6 bg-gradient-to-br from-[#FFDE96]/30 to-white">
+                <h3 class="font-black text-lg text-[#2E1A47] mb-4" id="bonusWaysTitle">كيف تجمع نقاط إضافية مع الخدام؟ 🌟</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs font-bold">
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">📅</span>
+                        <div>
+                            <div class="text-[#2E1A47]">حضور اجتماع الجمعة</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط</div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">🤝</span>
+                        <div>
+                            <div class="text-[#2E1A47]">إحضار صديق جديد للفصل</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط</div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">📞</span>
+                        <div>
+                            <div class="text-[#2E1A47]">السؤال والاتصال بصديق</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط</div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">🙋‍♂️</span>
+                        <div>
+                            <div class="text-[#2E1A47]">المشاركة والمساعدة بالفصل</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط</div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">📖</span>
+                        <div>
+                            <div class="text-[#2E1A47]">قراءة وتأمل الخلوة اليومية</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط</div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl comic-border-sm flex items-center gap-2">
+                        <span class="text-xl">🧠</span>
+                        <div>
+                            <div class="text-[#2E1A47]">تسميع الآيات والمزامير</div>
+                            <div class="text-[#C93638] font-black">+10 نقاط أو أكثر</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: NEWSFEED -->
+        <div id="secNewsfeed" class="tab-content hidden space-y-6">
+            <div class="comic-card p-6 bg-white">
+                <div class="mb-6">
+                    <h2 class="text-xl sm:text-2xl font-black text-[#2E1A47]" id="newsHeading">إعلانات وأخبار الفصل 📢</h2>
+                    <p class="text-xs text-gray-600 font-bold mt-1" id="newsSubheading">تابع أحدث الأخبار والإعلانات الموجهة لك من الخدام!</p>
+                </div>
+
+                <div id="newsfeedPostsContainer" class="space-y-4">
+                    <!-- Dynamic Posts Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: STUDENT PROFILE -->
+        <div id="secProfile" class="tab-content hidden space-y-6">
+            <div id="profileCardContent" class="comic-card p-6 bg-white">
+                <!-- Dynamically Rendered Profile Information -->
+            </div>
+        </div>
+
+        <!-- TAB 7: LEADER DASHBOARD (EXCLUSIVE ACCESS) -->
+        <div id="secLeaderDashboard" class="tab-content hidden space-y-8">
+            <div class="comic-card p-6 bg-gradient-to-r from-[#2E1A47] to-[#1A202C] text-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="comic-badge bg-[#FFDE96] text-[#2E1A47] text-xs mb-2">لوحة الإدارة والمتابعة 👑</span>
+                        <h2 class="text-2xl font-black text-white" id="leaderDashHeader">أهلاً بك يا خادم أبطال الإيمان!</h2>
+                        <p class="text-xs text-gray-300 font-bold mt-1">يمكنك متابعة الطلاب، إضافة النقاط، تعديل الأهداف، وتحديد خلوات الأسبوع.</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openAddLeaderModal()" class="comic-btn bg-[#62C4DA] text-white text-xs px-3 py-2 rounded-xl">
+                            <i class="fa-solid fa-user-plus ml-1"></i> <span id="btnAddNewLeader">إضافة خادم جديد</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEADER SECTION 1: STUDENTS MONITORING & POINT AWARDING -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2 flex items-center justify-between">
+                    <span>1. متابعة الطلاب وإضافة النقاط 👥</span>
+                    <span id="studentCountBadge" class="text-xs comic-badge bg-[#FFDE96] text-[#2E1A47]">0 طلاب مسجلين</span>
+                </h3>
+
+                <!-- Quick Award Points Tool -->
+                <div class="bg-[#F6FFEA] p-4 rounded-xl comic-border-sm mb-6">
+                    <h4 class="font-black text-xs text-[#2E1A47] uppercase mb-2">منح نقاط سريعة لطالب:</h4>
+                    <form onsubmit="handleLeaderGrantPoints(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <select id="awardStudentSelect" required class="comic-input text-xs bg-white">
+                            <option value="">اختر الطالب...</option>
+                        </select>
+                        <select id="awardCategorySelect" required class="comic-input text-xs bg-white">
+                            <option value="10|حضور اجتماع الجمعة">حضور اجتماع الجمعة (+10)</option>
+                            <option value="10|إحضار صديق جديد">إحضار صديق جديد (+10)</option>
+                            <option value="10|مكالمة والسؤال عن صديق">مكالمة والسؤال عن صديق (+10)</option>
+                            <option value="10|مشاركة ومساعدة بالفصل">مشاركة ومساعدة بالفصل (+10)</option>
+                            <option value="10|تسميع آية/مزمور">تسميع آية/مزمور (+10)</option>
+                            <option value="10|مكافأة خلوة يومية">مكافأة خلوة يومية (+10)</option>
+                            <option value="20|مكافأة تميز خاصة">مكافأة تميز خاصة (+20)</option>
+                        </select>
+                        <button type="submit" class="comic-btn bg-[#FA855A] text-white text-xs py-2 rounded-xl">
+                            منح النقاط الآن 🌟
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Student Submissions Review Table (Pending QT Approvals) -->
+                <div class="mb-6">
+                    <h4 class="font-black text-sm text-[#2E1A47] mb-2">تسليمات الخلوة اليومية المعلقة للمراجعة:</h4>
+                    <div id="pendingQTReviewContainer" class="space-y-2">
+                        <!-- Dynamic QT Submissions JS -->
+                    </div>
+                </div>
+
+                <!-- Full Roster Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead>
+                            <tr class="bg-gray-100 font-black text-[#2E1A47] border-b-2 border-black">
+                                <th class="p-2">اسم الطالب</th>
+                                <th class="p-2">تاريخ الميلاد</th>
+                                <th class="p-2">فريق الخدمة</th>
+                                <th class="p-2">الفريق التنافسي</th>
+                                <th class="p-2">إجمالي النقاط</th>
+                                <th class="p-2">الستريك</th>
+                                <th class="p-2 text-center">إجراءات التحكم</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentRosterTableBody" class="divide-y divide-gray-200 font-bold">
+                            <!-- Dynamic Roster Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- LEADER SECTION 2: 7-DAY QUIET TIME SCHEDULER -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2">
+                    2. جدول الخلوة اليومية الأسبوعي (7 أيام) 📅
+                </h3>
+                <form onsubmit="handleSaveWeeklyQT(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الأحد (Sunday)</label>
+                            <input type="text" id="qtSun" class="w-full comic-input text-xs" placeholder="مثال: يوحنا 3: 1-16">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الإثنين (Monday)</label>
+                            <input type="text" id="qtMon" class="w-full comic-input text-xs" placeholder="مثال: مزمور 23">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الثلاثاء (Tuesday)</label>
+                            <input type="text" id="qtTue" class="w-full comic-input text-xs" placeholder="مثال: مزمور 100">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الأربعاء (Wednesday)</label>
+                            <input type="text" id="qtWed" class="w-full comic-input text-xs" placeholder="مثال: متى 5: 1-12">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الخميس (Thursday)</label>
+                            <input type="text" id="qtThu" class="w-full comic-input text-xs" placeholder="مثال: فيلبي 4: 4-9">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-700 mb-1">الجمعة (Friday)</label>
+                            <input type="text" id="qtFri" class="w-full comic-input text-xs" placeholder="مثال: مزمور 1">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-black text-gray-700 mb-1">السبت (Saturday)</label>
+                            <input type="text" id="qtSat" class="w-full comic-input text-xs" placeholder="مثال: أمثال 3: 1-10">
+                        </div>
+                    </div>
+                    <button type="submit" class="comic-btn bg-[#62C4DA] text-white text-xs px-6 py-2.5 rounded-xl font-black">
+                        حفظ جدول الخلوة الأسبوعي 💾
+                    </button>
+                </form>
+            </div>
+
+            <!-- LEADER SECTION 3: MEMORY TASK MANAGER -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2">
+                    3. إدارة الآيات والمزامير للتسميع 🧠
+                </h3>
+                <form onsubmit="handleAddMemoryTask(event)" class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+                    <input type="text" id="memTitle" required placeholder="عنوان الآية/المزمور" class="comic-input text-xs">
+                    <input type="text" id="memText" required placeholder="نص الآية الشاهد" class="comic-input text-xs">
+                    <input type="number" id="memPoints" required placeholder="النقاط (default 10)" value="10" class="comic-input text-xs">
+                    <button type="submit" class="comic-btn bg-[#FA855A] text-white text-xs py-2 rounded-xl">
+                        إضافة للتسميع ➕
+                    </button>
+                </form>
+                <div id="leaderMemoryList" class="space-y-2">
+                    <!-- Dynamic Memory List for Leaders -->
+                </div>
+            </div>
+
+            <!-- LEADER SECTION 4: NEWSFEED PUBLISHER -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2">
+                    4. نشر إعلان بالفصل 📢
+                </h3>
+                <form onsubmit="handlePublishNews(event)" class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="newsTitle" required placeholder="عنوان الإعلان" class="comic-input text-xs">
+                        <select id="newsTarget" required class="comic-input text-xs bg-white">
+                            <option value="ALL">الكل (جميع الطلاب)</option>
+                            <option value="TEAM_Lions">فريق الأسود 🦁</option>
+                            <option value="TEAM_Eagles">فريق النسور 🦅</option>
+                            <option value="TEAM_Falcons">فريق الصقور ⚡</option>
+                            <option value="ROLE_Greeting">فريق الاستقبال 🤝</option>
+                            <option value="ROLE_Worship">فريق التسبيح 🎵</option>
+                            <option value="ROLE_Media">فريق الميديا 📸</option>
+                            <option value="ROLE_Crafts">فريق الأشغال 🎨</option>
+                            <option value="ROLE_Games">فريق الألعاب 🎮</option>
+                        </select>
+                    </div>
+                    <textarea id="newsContent" rows="3" required placeholder="مضمون الإعلان..." class="w-full comic-input text-xs"></textarea>
+                    <button type="submit" class="comic-btn bg-[#2E1A47] text-white text-xs px-6 py-2 rounded-xl">
+                        نشر الإعلان الآن 🚀
+                    </button>
+                </form>
+            </div>
+
+            <!-- LEADER SECTION 5: CLASS GOALS & REWARDS CUSTOMIZER -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2">
+                    5. تعديل أهداف ومكافآت الفصل الكبرى 🎯
+                </h3>
+                <form onsubmit="handleAddClassGoal(event)" class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+                    <input type="text" id="goalTitle" required placeholder="اسم الهدف (مثال: رحلة ملاهي)" class="comic-input text-xs">
+                    <input type="number" id="goalPoints" required placeholder="النقاط المطلوبة (مثال: 15000)" class="comic-input text-xs">
+                    <input type="text" id="goalIcon" required placeholder="أيقونة (مثال: 🎬 أو ⚽)" class="comic-input text-xs">
+                    <button type="submit" class="comic-btn bg-[#62C4DA] text-white text-xs py-2 rounded-xl">
+                        إضافة هدف جديد ➕
+                    </button>
+                </form>
+                <div id="leaderGoalsList" class="space-y-2">
+                    <!-- Dynamic Goals List for Leaders -->
+                </div>
+            </div>
+
+            <!-- LEADER SECTION 6: STUDENT BIRTHDAYS TRACKER -->
+            <div class="comic-card p-6 bg-white">
+                <h3 class="font-black text-xl text-[#2E1A47] mb-4 border-b-2 border-gray-100 pb-2">
+                    6. أعياد ميلاد الطلاب القادمة 🎂
+                </h3>
+                <div id="leaderBirthdayContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <!-- Dynamic Birthdays List JS -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- LEADER LOGIN MODAL -->
+    <div id="leaderLoginModal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center p-4 z-50">
+        <div class="comic-card p-6 bg-white max-w-sm w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-black text-lg text-[#2E1A47]" id="leaderLoginTitle">دخول بواب الخدام 🔐</h3>
+                <button onclick="closeLeaderModal()" class="text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleLeaderAuth(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-black text-gray-700 mb-1" id="lblLeaderUser">اسم المستخدم</label>
+                    <input type="text" id="leaderUsername" required class="w-full comic-input text-sm" placeholder="leader">
+                </div>
+                <div>
+                    <label class="block text-xs font-black text-gray-700 mb-1" id="lblLeaderPass">كلمة السر</label>
+                    <input type="password" id="leaderPassword" required class="w-full comic-input text-sm">
+                </div>
+                <button type="submit" class="w-full comic-btn bg-[#2E1A47] text-white py-2.5 rounded-xl text-sm font-black">
+                    تسجيل الدخول
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADD NEW LEADER ACCOUNT MODAL -->
+    <div id="addLeaderModal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center p-4 z-50">
+        <div class="comic-card p-6 bg-white max-w-sm w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-black text-lg text-[#2E1A47]" id="addLeaderTitle">إضافة خادم جديد 👤</h3>
+                <button onclick="closeAddLeaderModal()" class="text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleCreateLeaderAccount(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-black text-gray-700 mb-1">اسم المستخدم الجديد</label>
+                    <input type="text" id="newLeaderUser" required class="w-full comic-input text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-black text-gray-700 mb-1">كلمة السر</label>
+                    <input type="password" id="newLeaderPass" required class="w-full comic-input text-sm">
+                </div>
+                <button type="submit" class="w-full comic-btn bg-[#62C4DA] text-white py-2.5 rounded-xl text-sm font-black">
+                    حساب خادم جديد 💾
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- QUIET TIME ARCHIVE MODAL -->
+    <div id="qtArchiveModal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center p-4 z-50">
+        <div class="comic-card p-6 bg-white max-w-lg w-full max-h-[80vh] flex flex-col">
+            <div class="flex justify-between items-center mb-4 border-b-2 border-gray-100 pb-2">
+                <h3 class="font-black text-lg text-[#2E1A47]" id="archiveModalTitle">أرشيف القراءات الأسبوعية 📖</h3>
+                <button onclick="closeQTArchive()" class="text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="qtArchiveContent" class="overflow-y-auto space-y-3 flex-1 pr-1">
+                <!-- Dynamic Archive Entries JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA INSTALL GUIDE MODAL -->
+    <div id="pwaModal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center p-4 z-50">
+        <div class="comic-card p-6 bg-white max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-black text-lg text-[#2E1A47]" id="pwaGuideTitle">تثبيت التطبيق على الموبايل 📲</h3>
+                <button onclick="togglePwaModal()" class="text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="space-y-4 text-xs font-bold text-gray-700 leading-relaxed">
+                <div class="bg-[#FFDE96]/30 p-3 rounded-xl comic-border-sm">
+                    <h4 class="font-black text-[#C93638] mb-1">📱 لأجهزة الآيفون (iOS Safari):</h4>
+                    <p>1. اضغط على زر المشاركة (Share) <i class="fa-solid fa-share-nodes text-blue-500"></i> أسفل الشاشة.</p>
+                    <p>2. اختر "إضافة إلى الشاشة الرئيسية" (Add to Home Screen) <i class="fa-regular fa-square-plus"></i>.</p>
+                </div>
+                <div class="bg-[#62C4DA]/20 p-3 rounded-xl comic-border-sm">
+                    <h4 class="font-black text-[#2E1A47] mb-1">🤖 لأجهزة الأندرويد (Android Chrome):</h4>
+                    <p>1. اضغط على القائمة (الثلاث نقاط) <i class="fa-solid fa-ellipsis-vertical"></i> أعلى اليسار.</p>
+                    <p>2. اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* State Storage Keys & Default Initial State */
+        const STORAGE_KEYS = {
+            CURRENT_USER: 'fh_curr_user',
+            USERS: 'fh_students_db',
+            LEADERS: 'fh_leaders_db',
+            WEEKLY_QT: 'fh_weekly_qt',
+            MEMORY: 'fh_memory_tasks',
+            NEWS: 'fh_newsfeed',
+            GOALS: 'fh_class_goals',
+            SUBMISSIONS: 'fh_qt_submissions',
+            LANG: 'fh_app_lang'
+        };
+
+        // Translations Object
+        const i18n = {
+            ar: {
+                appTitle: "رحلتي مع يسوع",
+                appSubtitle: "فصل أبطال الإيمان - الكنيسة الإنجيلية بالعباسية (فصل 5 و 6)",
+                btnPwa: "تثبيت التطبيق",
+                langLabel: "English",
+                leaderBtnText: "بوابة الخدام",
+                loggedInAsLabel: "المستخدم الحالي:",
+                ptsLabel: "نقطة",
+                logoutTxt: "خروج",
+                authTitle: "دخول بطل جديد! 🚀",
+                authSubtitle: "اكتب اسمك وسجل معانا عشان تبدأ جمع النقاط والسباق!",
+                lblFullName: "اسم الطالب بالكامل ✍️",
+                lblBirthday: "تاريخ الميلاد 🎂",
+                lblTaskRole: "فريق الخدمة بالفصل 🤝 (اختر دورك)",
+                teamNoticeText: "ملاحظة: سيقوم الخدام بتوزيعك على الفريق التنافسي (الأسود 🦁 / النسور 🦅 / الصقور ⚡) لاحقاً!",
+                btnStartJourney: "ابدأ رحلتك الآن! 🌟",
+                tabTxtQT: "الخلوة اليومية",
+                tabTxtMemory: "التسميع والآيات",
+                tabTxtScore: "لوحة الأبطال والفرق",
+                tabTxtGoals: "أهداف الفصل والمكافآت",
+                tabTxtNews: "إعلانات الفصل",
+                tabTxtProfile: "ملفي الشخصي",
+                tabTxtLeader: "لوحة التحكم والمتابعة 👑",
+                qtTodayBadge: "خلوة اليوم 📖",
+                btnQTArchive: "أرشيف الخلوات السابق",
+                passageRefLabel: "النص الكتابي المطلوب لقراءته اليوم:",
+                lblReadCheck: "قرأت الخلوة اليوم بتركيز! 🌟 (في انتظار مراجعة الخدام للمنح)",
+                lblFavVerse: "1. آية لمست قلبي اليوم 📖",
+                lblFavThought: "2. فكرة أو درس تعلمته من القراءة 💡",
+                lblPrayer: "3. صلاتي للرب اليوم 🙏",
+                btnSubmitQT: "إرسال الخلوة للمراجعة",
+                memHeading: "آيات ومزامير التسميع 🧠",
+                memSubheading: "احفظ الآية أو المزمور وسمعها للخادم في اجتماع الجمعة للحصول على النقاط!",
+                headingTopScorers: "أبطال أعلى النقاط",
+                headingAttendanceStreaks: "أبطال المواظبة الجمعة (الستريك 🔥)",
+                goalsHeading: "أهداف ومكافآت الفصل 🎯",
+                goalsSubheading: "عندما يجمع الفصل معاً النقاط المطلوبة لنحتفل معاً!",
+                newsHeading: "إعلانات وأخبار الفصل 📢",
+                newsSubheading: "تابع أحدث الأخبار والإعلانات الموجهة لك من الخدام!",
+                leaderLoginTitle: "دخول بوابة الخدام 🔐",
+                lblLeaderUser: "اسم المستخدم",
+                lblLeaderPass: "كلمة السر"
+            },
+            en: {
+                appTitle: "My Journey with Jesus",
+                appSubtitle: "Faith Heroes Class - Abassia Evangelical Church (Grades 5 & 6)",
+                btnPwa: "Install App",
+                langLabel: "عربي",
+                leaderBtnText: "Leaders Portal",
+                loggedInAsLabel: "Logged in as:",
+                ptsLabel: "pts",
+                logoutTxt: "Logout",
+                authTitle: "New Hero Check-in! 🚀",
+                authSubtitle: "Enter your details to join the point race!",
+                lblFullName: "Student Full Name ✍️",
+                lblBirthday: "Date of Birth 🎂",
+                lblTaskRole: "Class Serving Team 🤝",
+                teamNoticeText: "Note: Leaders will assign your competitive team (Lions 🦁 / Eagles 🦅 / Falcons ⚡) later!",
+                btnStartJourney: "Start Journey! 🌟",
+                tabTxtQT: "Daily Quiet Time",
+                tabTxtMemory: "Memory Verses",
+                tabTxtScore: "Leaderboards & Teams",
+                tabTxtGoals: "Class Goals & Rewards",
+                tabTxtNews: "Class Newsfeed",
+                tabTxtProfile: "My Profile",
+                tabTxtLeader: "Leaders Dashboard 👑",
+                qtTodayBadge: "Today's Quiet Time 📖",
+                btnQTArchive: "Readings Archive",
+                passageRefLabel: "Assigned Bible Reading Today:",
+                lblReadCheck: "I read today's passage attentively! 🌟 (Pending leader approval)",
+                lblFavVerse: "1. Verse that touched my heart 📖",
+                lblFavThought: "2. Thought or lesson learned 💡",
+                lblPrayer: "3. My Prayer today 🙏",
+                btnSubmitQT: "Submit Reflection for Review",
+                memHeading: "Memory Verses & Psalms 🧠",
+                memSubheading: "Memorize and recite to a leader during Friday class to earn points!",
+                headingTopScorers: "Top Point Scorers",
+                headingAttendanceStreaks: "Friday Attendance Streaks 🔥",
+                goalsHeading: "Class Goals & Rewards 🎯",
+                goalsSubheading: "When our class points hit these targets, we celebrate together!",
+                newsHeading: "Class Announcements 📢",
+                newsSubheading: "Latest updates and posts from your leaders!",
+                leaderLoginTitle: "Leader Access Portal 🔐",
+                lblLeaderUser: "Username",
+                lblLeaderPass: "Password"
+            }
+        };
+
+        // Global State Variable Initializers
+        let currentLang = localStorage.getItem(STORAGE_KEYS.LANG) || 'ar';
+        let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.CURRENT_USER)) || null;
+
+        // Initialize Local Storage Arrays if empty
+        function initializeDB() {
+            if (!localStorage.getItem(STORAGE_KEYS.USERS)) localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify([]));
+            if (!localStorage.getItem(STORAGE_KEYS.LEADERS)) {
+                // Default Leader Credential: leader / 5626
+                localStorage.setItem(STORAGE_KEYS.LEADERS, JSON.stringify([{ user: 'leader', pass: '5626' }]));
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.WEEKLY_QT)) {
+                localStorage.setItem(STORAGE_KEYS.WEEKLY_QT, JSON.stringify({
+                    Sun: "متى 5: 1-12",
+                    Mon: "مزمور 23",
+                    Tue: "مزمور 100",
+                    Wed: "يوحنا 3: 16",
+                    Thu: "فيلبي 4: 4-8",
+                    Fri: "مزمور 1",
+                    Sat: "أمثال 3: 1-6"
+                }));
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.MEMORY)) localStorage.setItem(STORAGE_KEYS.MEMORY, JSON.stringify([]));
+            if (!localStorage.getItem(STORAGE_KEYS.NEWS)) localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify([]));
+            if (!localStorage.getItem(STORAGE_KEYS.GOALS)) {
+                localStorage.setItem(STORAGE_KEYS.GOALS, JSON.stringify([
+                    { id: 'g1', title: 'حفلة سينما بالكلية 🎬', target: 10000, icon: '🍿' },
+                    { id: 'g2', title: 'خروج لمطعم 🍔', target: 15000, icon: '🍔' },
+                    { id: 'g3', title: 'يوم رياضي مفتوح ⚽', target: 20000, icon: '🏆' }
+                ]));
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.SUBMISSIONS)) localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify([]));
+        }
+
+        window.onload = function() {
+            initializeDB();
+            applyLanguage(currentLang);
+            updateUIState();
+        };
+
+        // Language Mirror Handler
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem(STORAGE_KEYS.LANG, lang);
+            const html = document.documentElement;
+            html.lang = lang;
+            html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            if (lang === 'en') {
+                document.body.classList.remove('rtl-mode');
+                document.body.classList.add('ltr-mode');
+            } else {
+                document.body.classList.remove('ltr-mode');
+                document.body.classList.add('rtl-mode');
+            }
+
+            // Update Text Node Translations
+            const keys = Object.keys(i18n[lang]);
+            keys.forEach(k => {
+                const el = document.getElementById(k);
+                if (el) el.innerText = i18n[lang][k];
+            });
+
+            renderAllViews();
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        }
+
+        // UI View Switcher
+        function updateUIState() {
+            const authSec = document.getElementById('studentAuthSection');
+            const userBar = document.getElementById('userBar');
+            const tabNav = document.getElementById('appTabNav');
+            const leaderTabBtn = document.getElementById('tabLeaderDash');
+
+            if (currentUser) {
+                authSec.classList.add('hidden');
+                userBar.classList.remove('hidden');
+                tabNav.classList.remove('hidden');
+
+                document.getElementById('userNameDisplay').innerText = currentUser.name || currentUser.username;
+                document.getElementById('userPointsVal').innerText = currentUser.points || 0;
+
+                if (currentUser.isLeader) {
+                    document.getElementById('userBadge').innerText = currentLang === 'ar' ? 'خادم' : 'Leader';
+                    document.getElementById('userBadge').className = 'comic-badge bg-[#2E1A47] text-[#FFDE96] text-xs';
+                    document.getElementById('studentPointsQuick').classList.add('hidden');
+                    leaderTabBtn.classList.remove('hidden');
+                    switchTab('leaderDashboard');
+                } else {
+                    document.getElementById('userBadge').innerText = currentUser.taskRole || 'طالب';
+                    document.getElementById('userBadge').className = 'comic-badge bg-[#62C4DA] text-white text-xs';
+                    document.getElementById('studentPointsQuick').classList.remove('hidden');
+                    leaderTabBtn.classList.add('hidden');
+                    switchTab('quietTime');
+                }
+            } else {
+                authSec.classList.remove('hidden');
+                userBar.classList.add('hidden');
+                tabNav.classList.add('hidden');
+            }
+
+            renderAllViews();
+        }
+
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(t => {
+                t.classList.remove('bg-[#FA855A]', 'text-white');
+                t.classList.add('bg-white', 'text-[#2E1A47]');
+            });
+
+            if (tabId === 'quietTime') {
+                document.getElementById('secQuietTime').classList.remove('hidden');
+                document.getElementById('tabQuietTime').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'memory') {
+                document.getElementById('secMemory').classList.remove('hidden');
+                document.getElementById('tabMemory').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'leaderboard') {
+                document.getElementById('secLeaderboard').classList.remove('hidden');
+                document.getElementById('tabLeaderboard').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'goals') {
+                document.getElementById('secGoals').classList.remove('hidden');
+                document.getElementById('tabGoals').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'newsfeed') {
+                document.getElementById('secNewsfeed').classList.remove('hidden');
+                document.getElementById('tabNewsfeed').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'profile') {
+                document.getElementById('secProfile').classList.remove('hidden');
+                document.getElementById('tabProfile').classList.add('bg-[#FA855A]', 'text-white');
+            } else if (tabId === 'leaderDashboard') {
+                document.getElementById('secLeaderDashboard').classList.remove('hidden');
+                document.getElementById('tabLeaderDash').classList.add('bg-[#FA855A]', 'text-white');
+            }
+        }
+
+        function handleStudentAuth(e) {
+            e.preventDefault();
+            const fullName = document.getElementById('authFullName').value.trim();
+            const birthday = document.getElementById('authBirthday').value;
+            const taskRole = document.getElementById('authTaskRole').value;
+
+            let users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            let user = users.find(u => u.name.toLowerCase() === fullName.toLowerCase());
+
+            if (!user) {
+                user = {
+                    id: 'std_' + Date.now(),
+                    name: fullName,
+                    birthday: birthday,
+                    taskRole: taskRole,
+                    team: 'UNASSIGNED', // Assigned later by leaders
+                    points: 0,
+                    streak: 0,
+                    isLeader: false
+                };
+                users.push(user);
+                localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+            }
+
+            currentUser = user;
+            localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(currentUser));
+            confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+            updateUIState();
+        }
+
+        function handleLeaderPortalClick() {
+            if (currentUser && currentUser.isLeader) {
+                switchTab('leaderDashboard');
+            } else {
+                document.getElementById('leaderLoginModal').classList.remove('hidden');
+            }
+        }
+
+        function closeLeaderModal() {
+            document.getElementById('leaderLoginModal').classList.add('hidden');
+        }
+
+        function handleLeaderAuth(e) {
+            e.preventDefault();
+            const uInput = document.getElementById('leaderUsername').value.trim();
+            const pInput = document.getElementById('leaderPassword').value.trim();
+
+            const leaders = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEADERS)) || [];
+            const valid = leaders.find(l => l.user.toLowerCase() === uInput.toLowerCase() && l.pass === pInput);
+
+            if (valid) {
+                currentUser = {
+                    id: 'ldr_' + Date.now(),
+                    username: uInput,
+                    isLeader: true
+                };
+                localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(currentUser));
+                closeLeaderModal();
+                updateUIState();
+            } else {
+                alert(currentLang === 'ar' ? 'اسم المستخدم أو كلمة السر غير صحيحة!' : 'Invalid username or password!');
+            }
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+            updateUIState();
+        }
+
+        function renderAllViews() {
+            renderTodayQT();
+            renderMemoryTasks();
+            renderLeaderboards();
+            renderGoals();
+            renderNewsfeed();
+            renderProfile();
+            if (currentUser && currentUser.isLeader) {
+                renderLeaderDashboard();
+            }
+        }
+
+        // Render Quiet Time View
+        function renderTodayQT() {
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const todayKey = days[new Date().getDay()];
+            const weeklyQT = JSON.parse(localStorage.getItem(STORAGE_KEYS.WEEKLY_QT)) || {};
+            
+            const passage = weeklyQT[todayKey] || "لا يوجد نص محدد اليوم";
+            document.getElementById('qtTodayText').innerText = passage;
+            document.getElementById('qtPassageHeading').innerText = passage;
+            document.getElementById('qtDateToday').innerText = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Submit Quiet Time Reflection
+        function submitDailyReflection(e) {
+            e.preventDefault();
+            if (!currentUser || currentUser.isLeader) return;
+
+            const verse = document.getElementById('qtFavVerse').value;
+            const thought = document.getElementById('qtFavThought').value;
+            const prayer = document.getElementById('qtPrayer').value;
+            const readCheck = document.getElementById('qtReadCheck').checked;
+
+            const sub = {
+                id: 'sub_' + Date.now(),
+                studentId: currentUser.id,
+                studentName: currentUser.name,
+                date: new Date().toISOString().split('T')[0],
+                readCheck: readCheck,
+                verse: verse,
+                thought: thought,
+                prayer: prayer,
+                status: 'PENDING'
+            };
+
+            const subs = JSON.parse(localStorage.getItem(STORAGE_KEYS.SUBMISSIONS)) || [];
+            subs.push(sub);
+            localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(subs));
+
+            alert(currentLang === 'ar' ? 'تم إرسال خلوتك بنجاح للخدام لمراجعتها ومنح النقاط! 🌟' : 'Reflection submitted successfully for leader review!');
+            document.getElementById('qtSubmissionForm').reset();
+        }
+
+        // Render Memory Tasks View
+        function renderMemoryTasks() {
+            const container = document.getElementById('memoryTaskList');
+            const tasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.MEMORY)) || [];
+            
+            if (tasks.length === 0) {
+                container.innerHTML = `<div class="col-span-2 text-center text-gray-500 py-6 font-bold">${currentLang === 'ar' ? 'لا توجد آيات أو مزامير مطلوبة للتسميع حالياً.' : 'No memory tasks assigned yet.'}</div>`;
+                return;
+            }
+
+            container.innerHTML = tasks.map(t => `
+                <div class="comic-card p-4 bg-[#FFDE96]/20 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="comic-badge bg-[#2E1A47] text-white text-xs">${t.title}</span>
+                            <span class="comic-badge bg-[#FA855A] text-white text-xs">+${t.points} ${currentLang === 'ar' ? 'نقاط' : 'pts'}</span>
+                        </div>
+                        <p class="text-sm font-bold text-[#2E1A47] mb-4">"${t.text}"</p>
+                    </div>
+                    <div class="text-xs font-bold text-gray-500 bg-white p-2 rounded-lg comic-border-sm text-center">
+                        <i class="fa-solid fa-microphone ml-1"></i> ${currentLang === 'ar' ? 'سمّع للخادم في اجتماع الجمعة' : 'Recite to a leader during Friday class'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderLeaderboards() {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            
+            // Calculate Team Scores
+            let lionsPts = 0, eaglesPts = 0, falconsPts = 0;
+            users.forEach(u => {
+                if (u.team === 'Lions') lionsPts += (u.points || 0);
+                if (u.team === 'Eagles') eaglesPts += (u.points || 0);
+                if (u.team === 'Falcons') falconsPts += (u.points || 0);
+            });
+
+            document.getElementById('scoreTeamLions').innerText = lionsPts;
+            document.getElementById('scoreTeamEagles').innerText = eaglesPts;
+            document.getElementById('scoreTeamFalcons').innerText = falconsPts;
+
+            // Individual Top Scorers
+            const sortedByPoints = [...users].sort((a, b) => (b.points || 0) - (a.points || 0));
+            const rankList = document.getElementById('individualRankList');
+            
+            if (sortedByPoints.length === 0) {
+                rankList.innerHTML = `<p class="text-xs text-gray-500 font-bold text-center py-4">${currentLang === 'ar' ? 'لا يوجد طلاب مسجلين بعد' : 'No students registered yet'}</p>`;
+            } else {
+                rankList.innerHTML = sortedByPoints.slice(0, 10).map((u, index) => {
+                    let medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+                    return `
+                        <div class="flex items-center justify-between p-2.5 bg-[#F6FFEA] rounded-xl comic-border-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-sm">${medal}</span>
+                                <div>
+                                    <div class="font-extrabold text-xs text-[#2E1A47]">${u.name}</div>
+                                    <div class="text-[10px] font-bold text-gray-500">${u.team !== 'UNASSIGNED' ? u.team : 'بدون فريق'}</div>
+                                </div>
+                            </div>
+                            <span class="comic-badge bg-[#FA855A] text-white text-xs">${u.points || 0} pts</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Attendance Streaks Leaderboard
+            const sortedByStreak = [...users].sort((a, b) => (b.streak || 0) - (a.streak || 0));
+            const streakList = document.getElementById('attendanceStreakList');
+
+            if (sortedByStreak.length === 0) {
+                streakList.innerHTML = `<p class="text-xs text-gray-500 font-bold text-center py-4">${currentLang === 'ar' ? 'لا توجد بيانات ستريك بعد' : 'No streak data yet'}</p>`;
+            } else {
+                streakList.innerHTML = sortedByStreak.slice(0, 10).map((u) => `
+                    <div class="flex items-center justify-between p-2.5 bg-[#62C4DA]/10 rounded-xl comic-border-sm">
+                        <span class="font-extrabold text-xs text-[#2E1A47]">${u.name}</span>
+                        <span class="comic-badge bg-[#2E1A47] text-[#FFDE96] text-xs">🔥 ${u.streak || 0} ${currentLang === 'ar' ? 'أسابيع' : 'weeks'}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Render Class Goals
+        function renderGoals() {
+            const container = document.getElementById('classGoalsContainer');
+            const goals = JSON.parse(localStorage.getItem(STORAGE_KEYS.GOALS)) || [];
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            const totalClassPoints = users.reduce((sum, u) => sum + (u.points || 0), 0);
+
+            if (goals.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500 font-bold text-center">${currentLang === 'ar' ? 'لم يتم إضافة أهداف بعد من الخدام.' : 'No class goals added yet.'}</p>`;
+                return;
+            }
+
+            container.innerHTML = goals.map(g => {
+                const percent = Math.min(100, Math.round((totalClassPoints / g.target) * 100));
+                return `
+                    <div class="comic-card p-4 bg-gray-50">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-black text-sm text-[#2E1A47] flex items-center gap-2">
+                                <span class="text-xl">${g.icon}</span> ${g.title}
+                            </span>
+                            <span class="comic-badge bg-[#62C4DA] text-white text-xs">${totalClassPoints} / ${g.target} pts</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-5 rounded-full comic-border-sm overflow-hidden p-0.5">
+                            <div class="bg-gradient-to-r from-[#FA855A] to-[#FFDE96] h-full rounded-full transition-all duration-500 flex items-center justify-end pr-2 text-[10px] font-black text-black" style="width: ${percent}%">
+                                ${percent}%
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render Newsfeed
+        function renderNewsfeed() {
+            const container = document.getElementById('newsfeedPostsContainer');
+            const posts = JSON.parse(localStorage.getItem(STORAGE_KEYS.NEWS)) || [];
+
+            if (posts.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500 font-bold text-center py-6">${currentLang === 'ar' ? 'لا توجد إعلانات حالياً.' : 'No announcements published yet.'}</p>`;
+                return;
+            }
+
+            container.innerHTML = posts.map(p => `
+                <div class="comic-card p-4 bg-white border-l-8 border-l-[#FA855A]">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-black text-sm text-[#2E1A47]">${p.title}</h4>
+                        <span class="comic-badge bg-[#FFDE96] text-[#2E1A47] text-[10px]">${p.target}</span>
+                    </div>
+                    <p class="text-xs font-bold text-gray-700 leading-relaxed mb-2">${p.content}</p>
+                    <span class="text-[10px] text-gray-400 font-bold">${p.date}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderProfile() {
+            if (!currentUser || currentUser.isLeader) return;
+
+            const container = document.getElementById('profileCardContent');
+            const pts = currentUser.points || 0;
+
+            // Hero Rank Progression Engine
+            let rankName = 'داود النبي (David) 🗡️';
+            if (pts >= 100 && pts < 300) rankName = 'يوشع بطل الحرب (Joshua) 🛡️';
+            else if (pts >= 300 && pts < 600) rankName = ' إيليا النبوي (Elijah) ⚡';
+            else if (pts >= 600 && pts < 1000) rankName = 'دانيال البطل (Daniel) 🦁';
+            else if (pts >= 1000) rankName = 'بولس الرسول (Paul) 👑';
+
+            container.innerHTML = `
+                <div class="flex flex-col sm:flex-row items-center gap-4 border-b-2 border-gray-100 pb-4 mb-4">
+                    <div class="w-20 h-20 bg-[#FFDE96] rounded-2xl comic-border flex items-center justify-center text-3xl">
+                        🦸‍♂️
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <h2 class="text-xl font-black text-[#2E1A47]">${currentUser.name}</h2>
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-1">
+                            <span class="comic-badge bg-[#62C4DA] text-white text-xs">${currentUser.taskRole}</span>
+                            <span class="comic-badge bg-[#FA855A] text-white text-xs">${currentUser.team !== 'UNASSIGNED' ? currentUser.team : 'في انتظار توزيع الفريق'}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                    <div class="bg-[#F6FFEA] p-3 rounded-xl comic-border-sm">
+                        <div class="text-xs font-bold text-gray-500">المستوى الكتابي</div>
+                        <div class="text-sm font-black text-[#2E1A47] mt-1">${rankName}</div>
+                    </div>
+                    <div class="bg-[#FFDE96]/30 p-3 rounded-xl comic-border-sm">
+                        <div class="text-xs font-bold text-gray-500">إجمالي النقاط</div>
+                        <div class="text-lg font-black text-[#C93638] mt-1">${pts} pts</div>
+                    </div>
+                    <div class="bg-[#62C4DA]/20 p-3 rounded-xl comic-border-sm">
+                        <div class="text-xs font-bold text-gray-500">ستريك المواظبة</div>
+                        <div class="text-lg font-black text-[#2E1A47] mt-1">🔥 ${currentUser.streak || 0}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderLeaderDashboard() {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            document.getElementById('studentCountBadge').innerText = `${users.length} ${currentLang === 'ar' ? 'طلاب مسجلين' : 'registered students'}`;
+
+            // Populate Student Selectors for Quick Points
+            const select = document.getElementById('awardStudentSelect');
+            select.innerHTML = `<option value="">${currentLang === 'ar' ? 'اختر الطالب...' : 'Select Student...'}</option>` + 
+                users.map(u => `<option value="${u.id}">${u.name} (${u.team})</option>`).join('');
+
+            // Render Pending Quiet Time Submissions
+            const subs = JSON.parse(localStorage.getItem(STORAGE_KEYS.SUBMISSIONS)) || [];
+            const pendingSubs = subs.filter(s => s.status === 'PENDING');
+            const pendingContainer = document.getElementById('pendingQTReviewContainer');
+
+            if (pendingSubs.length === 0) {
+                pendingContainer.innerHTML = `<p class="text-xs text-gray-500 font-bold">${currentLang === 'ar' ? 'لا توجد تسليمات خلوة معلقة.' : 'No pending quiet time submissions.'}</p>`;
+            } else {
+                pendingContainer.innerHTML = pendingSubs.map(s => `
+                    <div class="bg-white p-3 rounded-xl comic-border-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+                        <div>
+                            <span class="font-black text-[#2E1A47]">${s.studentName}:</span>
+                            <span class="text-gray-600 font-bold ml-2">📖 "${s.verse}"</span>
+                        </div>
+                        <button onclick="approveQTSubmission('${s.id}')" class="comic-btn bg-[#62C4DA] text-white text-[10px] px-3 py-1 rounded-lg">
+                            موافقة ومنح +10 نقاط 🌟
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Render Roster Table
+            const tableBody = document.getElementById('studentRosterTableBody');
+            tableBody.innerHTML = users.map(u => `
+                <tr>
+                    <td class="p-2">${u.name}</td>
+                    <td class="p-2">${u.birthday || '-'}</td>
+                    <td class="p-2">${u.taskRole}</td>
+                    <td class="p-2">
+                        <select onchange="reassignStudentTeam('${u.id}', this.value)" class="comic-input text-[10px] p-1 bg-white">
+                            <option value="UNASSIGNED" ${u.team === 'UNASSIGNED' ? 'selected' : ''}>غير محدد</option>
+                            <option value="Lions" ${u.team === 'Lions' ? 'selected' : ''}>الأسود 🦁</option>
+                            <option value="Eagles" ${u.team === 'Eagles' ? 'selected' : ''}>النسور 🦅</option>
+                            <option value="Falcons" ${u.team === 'Falcons' ? 'selected' : ''}>الصقور ⚡</option>
+                        </select>
+                    </td>
+                    <td class="p-2 font-black text-[#C93638]">${u.points || 0}</td>
+                    <td class="p-2">🔥 ${u.streak || 0}</td>
+                    <td class="p-2 text-center flex items-center justify-center gap-1">
+                        <button onclick="adjustLeaderPoints('${u.id}', 10)" class="comic-btn bg-[#FA855A] text-white px-2 py-0.5 rounded text-[10px]">+10</button>
+                        <button onclick="adjustLeaderPoints('${u.id}', -10)" class="comic-btn bg-gray-300 text-black px-2 py-0.5 rounded text-[10px]">-10</button>
+                        <button onclick="markFridayAttendance('${u.id}')" class="comic-btn bg-[#2E1A47] text-[#FFDE96] px-2 py-0.5 rounded text-[10px]">حضور الجمعة</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Render Memory Tasks List in Leader Panel
+            const leaderMemList = document.getElementById('leaderMemoryList');
+            const tasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.MEMORY)) || [];
+            leaderMemList.innerHTML = tasks.map((t, idx) => `
+                <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg comic-border-sm text-xs">
+                    <div>
+                        <span class="font-black text-[#2E1A47]">${t.title}:</span> "${t.text}" (+${t.points} pts)
+                    </div>
+                    <button onclick="deleteMemoryTask(${idx})" class="text-red-600 font-black"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+
+            // Render Goals List in Leader Panel
+            const leaderGoalsContainer = document.getElementById('leaderGoalsList');
+            const goals = JSON.parse(localStorage.getItem(STORAGE_KEYS.GOALS)) || [];
+            leaderGoalsContainer.innerHTML = goals.map((g, idx) => `
+                <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg comic-border-sm text-xs">
+                    <div>
+                        <span class="font-black">${g.icon} ${g.title}</span> (${g.target} pts)
+                    </div>
+                    <button onclick="deleteClassGoal(${idx})" class="text-red-600 font-black"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+
+            // Render Birthdays
+            const bdayContainer = document.getElementById('leaderBirthdayContainer');
+            bdayContainer.innerHTML = users.map(u => `
+                <div class="p-2.5 bg-[#FFDE96]/20 rounded-xl comic-border-sm text-xs flex items-center justify-between">
+                    <div>
+                        <div class="font-black text-[#2E1A47]">${u.name}</div>
+                        <div class="text-[10px] text-gray-500">🎂 ${u.birthday || 'غير محدد'}</div>
+                    </div>
+                    <span class="comic-badge bg-[#62C4DA] text-white text-[10px]">${u.taskRole}</span>
+                </div>
+            `).join('');
+        }
+
+        // Leader Actions: Grant Points, Reassign Team, Attendance
+        function handleLeaderGrantPoints(e) {
+            e.preventDefault();
+            const studentId = document.getElementById('awardStudentSelect').value;
+            const categoryVal = document.getElementById('awardCategorySelect').value;
+            if (!studentId || !categoryVal) return;
+
+            const [ptsStr, reason] = categoryVal.split('|');
+            const pts = parseInt(ptsStr, 10);
+
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            const user = users.find(u => u.id === studentId);
+            if (user) {
+                user.points = (user.points || 0) + pts;
+                localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+                alert(`تم منح ${pts} نقطة للطالب ${user.name} بنجاح!`);
+                renderAllViews();
+            }
+        }
+
+        function adjustLeaderPoints(studentId, delta) {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            const user = users.find(u => u.id === studentId);
+            if (user) {
+                user.points = Math.max(0, (user.points || 0) + delta);
+                localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+                renderAllViews();
+            }
+        }
+
+        function reassignStudentTeam(studentId, newTeam) {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            const user = users.find(u => u.id === studentId);
+            if (user) {
+                user.team = newTeam;
+                localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+                renderAllViews();
+            }
+        }
+
+        function markFridayAttendance(studentId) {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+            const user = users.find(u => u.id === studentId);
+            if (user) {
+                user.points = (user.points || 0) + 10;
+                user.streak = (user.streak || 0) + 1;
+                localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+                alert(`تم تسجيل حضور الجمعة للطالب ${user.name} (+10 نقاط) وزيادة الستريك 🔥!`);
+                renderAllViews();
+            }
+        }
+
+        function approveQTSubmission(subId) {
+            const subs = JSON.parse(localStorage.getItem(STORAGE_KEYS.SUBMISSIONS)) || [];
+            const sub = subs.find(s => s.id === subId);
+            if (sub) {
+                sub.status = 'APPROVED';
+                localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(subs));
+
+                const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS)) || [];
+                const user = users.find(u => u.id === sub.studentId);
+                if (user) {
+                    user.points = (user.points || 0) + 10;
+                    localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+                }
+                renderAllViews();
+            }
+        }
+
+        // Leader Actions: Memory & Goals Management
+        function handleAddMemoryTask(e) {
+            e.preventDefault();
+            const title = document.getElementById('memTitle').value.trim();
+            const text = document.getElementById('memText').value.trim();
+            const pts = parseInt(document.getElementById('memPoints').value, 10) || 10;
+
+            const tasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.MEMORY)) || [];
+            tasks.push({ title, text, points: pts });
+            localStorage.setItem(STORAGE_KEYS.MEMORY, JSON.stringify(tasks));
+
+            document.getElementById('memTitle').value = '';
+            document.getElementById('memText').value = '';
+            renderAllViews();
+        }
+
+        function deleteMemoryTask(idx) {
+            const tasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.MEMORY)) || [];
+            tasks.splice(idx, 1);
+            localStorage.setItem(STORAGE_KEYS.MEMORY, JSON.stringify(tasks));
+            renderAllViews();
+        }
+
+        function handleAddClassGoal(e) {
+            e.preventDefault();
+            const title = document.getElementById('goalTitle').value.trim();
+            const target = parseInt(document.getElementById('goalPoints').value, 10);
+            const icon = document.getElementById('goalIcon').value.trim();
+
+            const goals = JSON.parse(localStorage.getItem(STORAGE_KEYS.GOALS)) || [];
+            goals.push({ id: 'g_' + Date.now(), title, target, icon });
+            localStorage.setItem(STORAGE_KEYS.GOALS, JSON.stringify(goals));
+
+            document.getElementById('goalTitle').value = '';
+            document.getElementById('goalPoints').value = '';
+            document.getElementById('goalIcon').value = '';
+            renderAllViews();
+        }
+
+        function deleteClassGoal(idx) {
+            const goals = JSON.parse(localStorage.getItem(STORAGE_KEYS.GOALS)) || [];
+            goals.splice(idx, 1);
+            localStorage.setItem(STORAGE_KEYS.GOALS, JSON.stringify(goals));
+            renderAllViews();
+        }
+
+        function handlePublishNews(e) {
+            e.preventDefault();
+            const title = document.getElementById('newsTitle').value.trim();
+            const target = document.getElementById('newsTarget').value;
+            const content = document.getElementById('newsContent').value.trim();
+
+            const posts = JSON.parse(localStorage.getItem(STORAGE_KEYS.NEWS)) || [];
+            posts.unshift({
+                title,
+                target,
+                content,
+                date: new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-EG' : 'en-US')
+            });
+            localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(posts));
+
+            document.getElementById('newsTitle').value = '';
+            document.getElementById('newsContent').value = '';
+            renderAllViews();
+        }
+
+        function handleSaveWeeklyQT(e) {
+            e.preventDefault();
+            const weeklyQT = {
+                Sun: document.getElementById('qtSun').value || "متى 5",
+                Mon: document.getElementById('qtMon').value || "مزمور 23",
+                Tue: document.getElementById('qtTue').value || "مزمور 100",
+                Wed: document.getElementById('qtWed').value || "يوحنا 3",
+                Thu: document.getElementById('qtThu').value || "فيلبي 4",
+                Fri: document.getElementById('qtFri').value || "مزمور 1",
+                Sat: document.getElementById('qtSat').value || "أمثال 3"
+            };
+            localStorage.setItem(STORAGE_KEYS.WEEKLY_QT, JSON.stringify(weeklyQT));
+            alert(currentLang === 'ar' ? 'تم حفظ جدول الخلوة الأسبوعي!' : 'Weekly Quiet Time saved!');
+            renderAllViews();
+        }
+
+        // Leader Accounts Modal & Logic
+        function openAddLeaderModal() {
+            document.getElementById('addLeaderModal').classList.remove('hidden');
+        }
+
+        function closeAddLeaderModal() {
+            document.getElementById('addLeaderModal').classList.add('hidden');
+        }
+
+        function handleCreateLeaderAccount(e) {
+            e.preventDefault();
+            const u = document.getElementById('newLeaderUser').value.trim();
+            const p = document.getElementById('newLeaderPass').value.trim();
+
+            const leaders = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEADERS)) || [];
+            leaders.push({ user: u, pass: p });
+            localStorage.setItem(STORAGE_KEYS.LEADERS, JSON.stringify(leaders));
+
+            alert(currentLang === 'ar' ? 'تمت إضافة حساب الخادم بنجاح!' : 'New leader created successfully!');
+            closeAddLeaderModal();
+        }
+
+        // Archive & PWA Modals
+        function openQTArchive() {
+            const container = document.getElementById('qtArchiveContent');
+            const weeklyQT = JSON.parse(localStorage.getItem(STORAGE_KEYS.WEEKLY_QT)) || {};
+            
+            container.innerHTML = Object.entries(weeklyQT).map(([day, passage]) => `
+                <div class="p-3 bg-gray-50 rounded-xl comic-border-sm flex justify-between items-center text-xs">
+                    <span class="font-black text-[#2E1A47]">${day}:</span>
+                    <span class="font-bold text-[#C93638]">${passage}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('qtArchiveModal').classList.remove('hidden');
+        }
+
+        function closeQTArchive() {
+            document.getElementById('qtArchiveModal').classList.add('hidden');
+        }
+
+        function togglePwaModal() {
+            const m = document.getElementById('pwaModal');
+            m.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
