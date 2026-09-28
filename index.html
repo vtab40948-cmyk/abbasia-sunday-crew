@@ -1595,9 +1595,36 @@
         }
 
         function togglePwaModal() {
-            const m = document.getElementById('pwaModal');
-            m.classList.toggle('hidden');
-        }
-    </script>
+      const m = document.getElementById('pwaModal');
+      m.classList.toggle('hidden');
+    }
+
+    function saveStudentData(studentId, studentInfo) {
+      // Pushes new student data live to the 'students' node in Firebase
+      db.ref('students/' + studentId).set(studentInfo)
+        .then(() => console.log("Data saved online successfully!"))
+        .catch((error) => console.error("Error saving data: ", error));
+    }
+        </script>
+    <!-- Firebase Compatibility SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+  <script>
+    // Paste your config here
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeZYcwUjNJqUOFn3lsrBL6N2V0j8oVKNc",
+      authDomain: "abbasia-sunday-crew.firebaseapp.com",
+      databaseURL: "https://abbasia-sunday-crew-default-rtdb.firebaseio.com",
+      projectId: "abbasia-sunday-crew",
+      storageBucket: "abbasia-sunday-crew.firebasestorage.app",
+      messagingSenderId: "546561455599",
+      appId: "1:546561455599:web:8b214cbfdd1c5daab3321a"
+    };
+
+    // Initialize Firebase and Database connection
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
 </body>
 </html>
