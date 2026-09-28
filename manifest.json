@@ -1,0 +1,23 @@
+{
+  "short_name": "Sunday Crew",
+  "name": "Abbasia Sunday Crew (Grades 5 & 6)",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#F8FAF6",
+  "theme_color": "#62C4DA",
+  "display": "standalone",
+  "orientation": "portrait"
+}
