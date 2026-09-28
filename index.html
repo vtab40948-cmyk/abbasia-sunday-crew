@@ -1598,14 +1598,45 @@
       const m = document.getElementById('pwaModal');
       m.classList.toggle('hidden');
     }
-
-    function saveStudentData(studentId, studentInfo) {
-      // Pushes new student data live to the 'students' node in Firebase
-      db.ref('students/' + studentId).set(studentInfo)
-        .then(() => console.log("Data saved online successfully!"))
-        .catch((error) => console.error("Error saving data: ", error));
+function togglePwaModal() {
+      const m = document.getElementById('pwaModal');
+      m.classList.toggle('hidden');
     }
-        </script>
+
+    // PASTE HERE:
+    const formElement = document.getElementById('studentForm') || document.querySelector('form');
+    if (formElement) {
+      formElement.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const studentName = document.getElementById('studentName')?.value.trim() || '';
+        const studentGrade = document.getElementById('studentGrade')?.value || '';
+        const studentPhone = document.getElementById('studentPhone')?.value.trim() || '';
+
+        if (!studentName) return;
+
+        const studentId = 'student_' + Date.now();
+
+        const studentInfo = {
+          name: studentName,
+          grade: studentGrade,
+          phone: studentPhone,
+          timestamp: new Date().toLocaleTimeString('ar-EG')
+        };
+
+        saveStudentData(studentId, studentInfo);
+        this.reset();
+      });
+    }
+  function saveStudentData(studentId, studentInfo) {
+  // Access firebase directly so it works regardless of script loading order
+  const db = firebase.database();
+
+  db.ref('students/' + studentId).set(studentInfo)
+    .then(() => console.log("Data saved online successfully!"))
+    .catch((error) => console.error("Error saving data: ", error));
+}
+</script>
     <!-- Firebase Compatibility SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -1626,5 +1657,31 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
   </script>
+    // Live update listener for connected leaders' screens
+    db.ref('students').on('value', (snapshot) => {
+      const data = snapshot.val();
+      const listContainer = document.getElementById('studentsList');
+      if (!listContainer) return;
+
+      if (!data) {
+        listContainer.innerHTML = '<p class="text-slate-400 text-center py-4">لا يوجد مخدومين مسجلين حتى الآن.</p>';
+        return;
+      }
+
+      listContainer.innerHTML = '';
+      Object.values(data).reverse().forEach((student) => {
+        const item = document.createElement('div');
+        item.className = 'bg-slate-800 border border-slate-700 p-3 rounded-xl my-2';
+        item.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-amber-400">${student.name}</span>
+            <span class="text-xs bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded border border-amber-500/20">${student.grade}</span>
+          </div>
+          <p class="text-sm text-slate-300 mt-1">${student.phone || 'بدون رقم'}</p>
+        `;
+        listContainer.appendChild(item);
+      });
+    });
+    </script>
 </body>
 </html>
