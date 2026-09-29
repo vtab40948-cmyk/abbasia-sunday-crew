@@ -1389,12 +1389,13 @@
                 </div>
             `).join('');
 
-           // Render Birthdays
+        // Render Birthdays Safely
 const bdayContainer = document.getElementById('leaderBirthdayContainer') || document.getElementById('upcomingBirthdaysContainer');
-if (bdayContainer && Array.isArray(users)) {
-  const usersWithBday = users.filter(u => u.birthday);
+const studentData = (typeof studentsList !== 'undefined' && Array.isArray(studentsList)) ? studentsList : ((typeof users !== 'undefined' && Array.isArray(users)) ? users : []);
+if (bdayContainer) {
+  const usersWithBday = studentData.filter(u => u && u.birthday);
   if (usersWithBday.length === 0) {
-   bdayContainer.innerHTML = '<p class="text-xs text-gray-400 py-2 text-center">لا توجد أعياد ميلاد مسجلة حتى الآن.</p>';
+    bdayContainer.innerHTML = '<p class="text-xs text-gray-400 py-2 text-center">لا توجد أعياد ميلاد مسجلة حتى الآن.</p>';
   } else {
     bdayContainer.innerHTML = usersWithBday.map(u => `
       <div class="p-2.5 bg-[#FFDE96]/20 rounded-xl comic-border-sm text-xs flex items-center justify-between my-1">
@@ -1407,7 +1408,6 @@ if (bdayContainer && Array.isArray(users)) {
     `).join('');
   }
 }
-
         // Leader Actions: Grant Points, Reassign Team, Attendance
         function handleLeaderGrantPoints(e) {
             e.preventDefault();
