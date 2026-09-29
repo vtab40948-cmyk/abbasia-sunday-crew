@@ -1656,7 +1656,46 @@ function togglePwaModal() {
     // Initialize Firebase and Database connection
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
-  </script>
+      // Sync Student Auth directly to Firebase Realtime Database
+function handleStudentAuth(e) {
+  e.preventDefault();
+  const fullName = document.getElementById('authFullName').value.trim();
+  const birthday = document.getElementById('authBirthday').value;
+  const taskRole = document.getElementById('authTaskRole').value;
+
+  if (!fullName) return;
+
+  const studentId = 'std_' + Date.now();
+  const userData = {
+    id: studentId,
+    name: fullName,
+    birthday: birthday,
+    taskRole: taskRole,
+    team: 'UNASSIGNED',
+    points: 0,
+    streak: 0,
+    isLeader: false
+  };
+
+  // Push to Firebase Realtime Database
+  db.ref('students/' + studentId).set(userData)
+    .then(() => {
+      currentUser = userData;
+      localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(currentUser));
+      if (typeof confetti === 'function') confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+      updateUIState();
+    })
+    .catch((err) => {
+      console.error("Firebase error: ", err);
+      alert("حدث خطأ أثناء حفظ البيانات online");
+    });
+}
+      // Automatically catch any submit event or button click on the auth modal
+document.addEventListener('submit', function (e) {
+  if (e.target.querySelector('#authFullName')) {
+    handleStudentAuth(e);
+  }
+});
     // Live update listener for connected leaders' screens
     db.ref('students').on('value', (snapshot) => {
       const data = snapshot.val();
@@ -1667,7 +1706,6 @@ function togglePwaModal() {
         listContainer.innerHTML = '<p class="text-slate-400 text-center py-4">لا يوجد مخدومين مسجلين حتى الآن.</p>';
         return;
       }
-
       listContainer.innerHTML = '';
       Object.values(data).reverse().forEach((student) => {
         const item = document.createElement('div');
