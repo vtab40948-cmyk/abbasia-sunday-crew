@@ -1389,18 +1389,24 @@
                 </div>
             `).join('');
 
-            // Render Birthdays
-            const bdayContainer = document.getElementById('leaderBirthdayContainer');
-            bdayContainer.innerHTML = users.map(u => `
-                <div class="p-2.5 bg-[#FFDE96]/20 rounded-xl comic-border-sm text-xs flex items-center justify-between">
-                    <div>
-                        <div class="font-black text-[#2E1A47]">${u.name}</div>
-                        <div class="text-[10px] text-gray-500">🎂 ${u.birthday || 'غير محدد'}</div>
-                    </div>
-                    <span class="comic-badge bg-[#62C4DA] text-white text-[10px]">${u.taskRole}</span>
-                </div>
-            `).join('');
-        }
+           // Render Birthdays
+const bdayContainer = document.getElementById('leaderBirthdayContainer') || document.getElementById('upcomingBirthdaysContainer');
+if (bdayContainer && Array.isArray(users)) {
+  const usersWithBday = users.filter(u => u.birthday);
+  if (usersWithBday.length === 0) {
+   bdayContainer.innerHTML = '<p class="text-xs text-gray-400 py-2 text-center">لا توجد أعياد ميلاد مسجلة حتى الآن.</p>';
+  } else {
+    bdayContainer.innerHTML = usersWithBday.map(u => `
+      <div class="p-2.5 bg-[#FFDE96]/20 rounded-xl comic-border-sm text-xs flex items-center justify-between my-1">
+        <div>
+          <div class="font-black text-[#2E1A47]">${u.name || 'طالب'}</div>
+          <div class="text-[10px] text-gray-500">🎂 ${u.birthday}</div>
+        </div>
+        <span class="comic-badge bg-[#62C4DA] text-white text-[10px]">${u.team || u.taskRole || 'عضو'}</span>
+      </div>
+    `).join('');
+  }
+}
 
         // Leader Actions: Grant Points, Reassign Team, Attendance
         function handleLeaderGrantPoints(e) {
