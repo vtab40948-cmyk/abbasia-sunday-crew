@@ -534,9 +534,6 @@
                     </form>
                 </div>
 
-  <!-- Paste here -->
-  <div id="studentsList"></div>
-
   <!-- Student Submissions Review Table (Pending QT Approvals) -->
                 <div class="mb-6">
                     <h4 class="font-black text-sm text-[#2E1A47] mb-2">تسليمات الخلوة اليومية المعلقة للمراجعة:</h4>
@@ -1691,30 +1688,74 @@ function handleStudentAuth(e) {
     .catch((err) => {
       console.error("Firebase error: ", err);
       alert("حدث خطأ أثناء حفظ البيانات online");
-    });
+   });
 }
-      // Automatically catch any submit event or button click on the auth modal
-document.addEventListener('submit', function (e) {
-  if (e.target.querySelector('#authFullName')) {
-    handleStudentAuth(e);
-  }
-});
-    // Live update listener for connected leaders' screens
-db.ref('students').on('value', (snapshot) => {
-  const tableBody = document.getElementById('studentRosterTableBody');
-  const listContainer = document.getElementById('studentsList');
-  const data = snapshot.val();
 
-  if (!data) {
-    if (tableBody) tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4 text-gray-400">لا يوجد مخدومين مسجلين حتى الآن</td></tr>';
-    if (listContainer) listContainer.innerHTML = '<p class="text-slate-400 text-center py-4">لا يوجد مخدومين مسجلين حتى الآن.</p>';
+// Function to grant points to a selected student from Leader Dashboard
+function handleLeaderGrantPoints(e) {
+  e.preventDefault();
+  const studentId = document.getElementById('awardStudentSelect').value;
+  const categoryValue = document.getElementById('awardCategorySelect').value;
+
+  if (!studentId) {
+    alert('يرجى اختيار طالب من القائمة');
     return;
   }
 
-  // 1. Render Table Rows (for studentRosterTableBody)
-  if (tableBody) {
-    tableBody.innerHTML = '';
-    Object.values(data).reverse().forEach((student) => {
+  // Extract numeric points value
+  let pointsToAdd = parseInt(categoryValue, 10);
+  if (isNaN(pointsToAdd)) {
+    const match = categoryValue.match(/\+(\d+)/);
+    pointsToAdd = match ? parseInt(match[1], 10) : 10;
+  }
+
+  // Transaction to safely increment points in Realtime DB
+  const studentRef = db.ref('students/' + studentId + '/points');
+  studentRef.transaction((currentPoints) => {
+    return (currentPoints || 0) + pointsToAdd;
+  }, (error, committed) => {
+    if (error) {
+      alert('حدث خطأ أثناء إضافة النقاط');
+    } else if (committed) {
+      alert('تمت إضافة النقاط بنجاح! 🌟');
+    }
+  });
+}
+
+// Master Live Listener for Leader Dashboard Integration
+db.ref('students').on('value', (snapshot) => {
+  const tableBody = document.getElementById('studentRosterTableBody');
+  const awardSelect = document.getElementById('awardStudentSelect');
+  const countBadge = document.getElementById('studentCountBadge');
+  const data = snapshot.val();
+
+  // Reset dropdown menu to default
+  if (awardSelect) {
+    awardSelect.innerHTML = '<option value="">اختر الطالب...</option>';
+  }
+
+  // Handle empty database case
+  if (!data) {
+    if (tableBody) {
+      tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4 text-gray-400">لا يوجد مخدومين مسجلين حتى الآن</td></tr>';
+    }
+    if (countBadge) countBadge.textContent = '0 طلاب مسجلين';
+    return;
+  }
+
+  const studentsList = Object.values(data).reverse();
+
+  // Update total students count badge
+  if (countBadge) {
+    countBadge.textContent = `${studentsList.length} طلاب مسجلين`;
+  }
+
+  // 1. Populate Full Roster Table & Award Dropdown
+  if (tableBody) tableBody.innerHTML = '';
+
+  studentsList.forEach((student) => {
+    // A. Populate Table Rows
+    if (tableBody) {
       const row = document.createElement('tr');
       row.className = 'border-b border-gray-200 hover:bg-gray-50 text-right';
       row.innerHTML = `
@@ -1725,37 +1766,65 @@ db.ref('students').on('value', (snapshot) => {
         <td class="p-2 font-bold text-emerald-600">⭐ ${student.points || 0}</td>
         <td class="p-2 text-amber-500 font-bold">🔥 ${student.streak || 0}</td>
         <td class="p-2 text-center">
-          <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded border border-gray-300 font-bold">
+          <button onclick="openEditStudentModal('${student.id}')" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded border border-gray-300 font-bold">
             تعديل
           </button>
         </td>
       `;
       tableBody.appendChild(row);
-    });
+    }
+
+    // B. Populate Point Awarding Dropdown Options
+   if (awardSelect) {
+        const option = document.createElement('option');
+        option.value = student.id;
+        option.textContent = `${student.name || 'بدون اسم'} (${student.points || 0} نقطة)`;
+        awardSelect.appendChild(option);
+     } // Closes if (awardSelect)
+  }); // Closes studentsList.forEach
+}); // Closes db.ref('students').on
+      // Live Listener for Quiet Time (Khalawa) Submissions
+db.ref('qt_submissions').on('value', (snapshot) => {
+  const container = document.getElementById('pendingQTReviewContainer');
+  if (!container) return;
+
+  const submissions = snapshot.val();
+
+  if (!submissions) {
+    container.innerHTML = '<p class="text-xs text-gray-400 py-2">لا توجد تسليمات خلوة معلقة.</p>';
+    return;
   }
 
-  // 2. Render Mobile Cards (if studentsList container exists)
-  if (listContainer) {
-    listContainer.innerHTML = '';
-    Object.values(data).reverse().forEach((student) => {
-      const item = document.createElement('div');
-      item.className = 'bg-slate-800 border border-slate-700 p-4 rounded-2xl my-2 text-white shadow-sm';
-      item.innerHTML = `
-        <div class="flex justify-between items-center mb-1">
-          <span class="font-bold text-amber-400 text-base">${student.name || 'بدون اسم'}</span>
-          <span class="text-xs bg-amber-500/10 text-amber-300 px-2.5 py-1 rounded-full border border-amber-500/20 font-medium">
-            ${student.taskRole || 'عضو'}
-          </span>
+  container.innerHTML = '';
+  Object.entries(submissions).forEach(([subId, sub]) => {
+    if (sub.status === 'pending') {
+      const card = document.createElement('div');
+      card.className = 'p-3 bg-amber-50 border border-amber-200 rounded-xl flex justify-between items-center my-1';
+      card.innerHTML = `
+        <div>
+          <p class="font-bold text-xs text-[#2E1A47]">${sub.studentName || 'طالب'}</p>
+          <p class="text-[10px] text-gray-500">${sub.date || ''} - ${sub.notes || 'تسليم خلوة'}</p>
         </div>
-        <div class="flex justify-between items-center text-xs text-slate-300 mt-2">
-          <span>🎂 ${student.birthday || 'غير محدد'}</span>
-          <span class="text-emerald-400 font-semibold">⭐ ${student.points || 0} نقطة</span>
-        </div>
+        <button onclick="approveQT('${subId}', '${sub.studentId}')" class="bg-emerald-600 text-white text-xs px-3 py-1 rounded-lg font-bold">
+          اعتماد (+10)
+        </button>
       `;
-      listContainer.appendChild(item);
-    });
-  }
+      container.appendChild(card);
+    }
+  });
 });
+
+// Handler to approve a submission and increment points
+function approveQT(subId, studentId) {
+  // Update submission status
+  db.ref('qt_submissions/' + subId).update({ status: 'approved' }).then(() => {
+    // Increment student points by 10
+    db.ref('students/' + studentId + '/points').transaction((points) => (points || 0) + 10);
+    alert('تم اعتماد الخلوة وإضافة النقاط! 🌟');
+  }).catch((err) => {
+    console.error('Error approving QT:', err);
+  });
+}
     </script>
 </body>
 </html>
