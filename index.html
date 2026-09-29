@@ -1701,38 +1701,60 @@ document.addEventListener('submit', function (e) {
 });
     // Live update listener for connected leaders' screens
 db.ref('students').on('value', (snapshot) => {
+  const tableBody = document.getElementById('studentRosterTableBody');
   const listContainer = document.getElementById('studentsList');
-  if (!listContainer) return;
-
   const data = snapshot.val();
 
   if (!data) {
-    listContainer.innerHTML = '<p class="text-slate-400 text-center py-4">لا يوجد مخدومين مسجلين حتى الآن.</p>';
+    if (tableBody) tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4 text-gray-400">لا يوجد مخدومين مسجلين حتى الآن</td></tr>';
+    if (listContainer) listContainer.innerHTML = '<p class="text-slate-400 text-center py-4">لا يوجد مخدومين مسجلين حتى الآن.</p>';
     return;
   }
 
-  listContainer.innerHTML = '';
-  Object.values(data).reverse().forEach((student) => {
-    const item = document.createElement('div');
-    item.className = 'bg-slate-800 border border-slate-700 p-4 rounded-2xl my-2 shadow-sm';
-    item.innerHTML = `
-      <div class="flex justify-between items-center mb-1">
-        <span class="font-bold text-amber-400 text-base">${student.name || 'بدون اسم'}</span>
-        <span class="text-xs bg-amber-500/10 text-amber-300 px-2.5 py-1 rounded-full border border-amber-500/20 font-medium">
-          ${student.taskRole || 'عضو'}
-        </span>
-      </div>
-      <div class="flex justify-between items-center text-xs text-slate-300 mt-2">
-        <span>🎂 ${student.birthday || 'غير محدد'}</span>
-        <span class="text-emerald-400 font-semibold">⭐ ${student.points || 0} نقطة</span>
-      </div>
-      <div class="mt-2 text-xs text-slate-400 border-t border-slate-700/50 pt-2 flex justify-between">
-        <span>الفريق: <strong class="text-slate-200">${student.team || 'غير معين'}</strong></span>
-        <span>ID: ${student.id || ''}</span>
-      </div>
-    `;
-    listContainer.appendChild(item);
- });
+  // 1. Render Table Rows (for studentRosterTableBody)
+  if (tableBody) {
+    tableBody.innerHTML = '';
+    Object.values(data).reverse().forEach((student) => {
+      const row = document.createElement('tr');
+      row.className = 'border-b border-gray-200 hover:bg-gray-50 text-right';
+      row.innerHTML = `
+        <td class="p-2 font-bold text-[#2E1A47]">${student.name || 'بدون اسم'}</td>
+        <td class="p-2 text-gray-600">${student.birthday || 'غير محدد'}</td>
+        <td class="p-2 text-gray-600">${student.taskRole || 'عضو'}</td>
+        <td class="p-2 text-gray-600">${student.team || 'غير معين'}</td>
+        <td class="p-2 font-bold text-emerald-600">⭐ ${student.points || 0}</td>
+        <td class="p-2 text-amber-500 font-bold">🔥 ${student.streak || 0}</td>
+        <td class="p-2 text-center">
+          <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded border border-gray-300 font-bold">
+            تعديل
+          </button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
+
+  // 2. Render Mobile Cards (if studentsList container exists)
+  if (listContainer) {
+    listContainer.innerHTML = '';
+    Object.values(data).reverse().forEach((student) => {
+      const item = document.createElement('div');
+      item.className = 'bg-slate-800 border border-slate-700 p-4 rounded-2xl my-2 text-white shadow-sm';
+      item.innerHTML = `
+        <div class="flex justify-between items-center mb-1">
+          <span class="font-bold text-amber-400 text-base">${student.name || 'بدون اسم'}</span>
+          <span class="text-xs bg-amber-500/10 text-amber-300 px-2.5 py-1 rounded-full border border-amber-500/20 font-medium">
+            ${student.taskRole || 'عضو'}
+          </span>
+        </div>
+        <div class="flex justify-between items-center text-xs text-slate-300 mt-2">
+          <span>🎂 ${student.birthday || 'غير محدد'}</span>
+          <span class="text-emerald-400 font-semibold">⭐ ${student.points || 0} نقطة</span>
+        </div>
+      `;
+      listContainer.appendChild(item);
+    });
+  }
 });
     </script>
 </body>
