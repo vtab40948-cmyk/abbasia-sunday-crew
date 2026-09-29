@@ -1762,7 +1762,14 @@ db.ref('students').on('value', (snapshot) => {
         <td class="p-2 font-bold text-[#2E1A47]">${student.name || 'بدون اسم'}</td>
         <td class="p-2 text-gray-600">${student.birthday || 'غير محدد'}</td>
         <td class="p-2 text-gray-600">${student.taskRole || 'عضو'}</td>
-        <td class="p-2 text-gray-600">${student.team || 'غير معين'}</td>
+        <td class="p-2">
+  <select onchange="updateStudentTeam('${student.id}', this.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg p-1 font-bold">
+    <option value="UNASSIGNED" ${student.team === 'UNASSIGNED' || !student.team ? 'selected' : ''}>UNASSIGNED</option>
+    <option value="فريق الأسود" ${student.team === 'فريق الأسود' ? 'selected' : ''}>فريق الأسود</option>
+    <option value="فريق النسور" ${student.team === 'فريق النسور' ? 'selected' : ''}>فريق النسور</option>
+    <option value="فريق الصقور" ${student.team === 'فريق الصقور' ? 'selected' : ''}>فريق الصقور</option>
+  </select>
+</td>
         <td class="p-2 font-bold text-emerald-600">⭐ ${student.points || 0}</td>
         <td class="p-2 text-amber-500 font-bold">🔥 ${student.streak || 0}</td>
         <td class="p-2 text-center">
@@ -1823,6 +1830,17 @@ function approveQT(subId, studentId) {
     alert('تم اعتماد الخلوة وإضافة النقاط! 🌟');
   }).catch((err) => {
     console.error('Error approving QT:', err);
+  });
+}
+      // Function to handle team assignment changes by leaders
+function updateStudentTeam(studentId, newTeam) {
+  if (!studentId) return;
+
+  db.ref('students/' + studentId).update({
+    team: newTeam
+  }).catch((error) => {
+    console.error('Error updating team:', error);
+    alert('حدث خطأ أثناء تغيير الفريق');
   });
 }
     </script>
